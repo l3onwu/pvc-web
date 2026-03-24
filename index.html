@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PVC Session Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600;700&family=Hind+Madurai:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="orb orb--north" aria-hidden="true"></div>
+    <div class="orb orb--south" aria-hidden="true"></div>
+    <div class="app-shell">
+      <header class="hero">
+        <div class="hero__text">
+          <p class="eyebrow">PVC Session Studio</p>
+          <h1>Track every beat with calm certainty.</h1>
+          <p class="lede">
+            Launch a focused session, tap along with your rhythm, and capture
+            PVC ratios with elegant clarity and lasting history.
+          </p>
+        </div>
+        <div class="hero__stats" aria-live="polite">
+          <div class="hero__stat">
+            <span class="hero__label">Current PVC share</span>
+            <span class="hero__value" id="heroPvcShare">0%</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__label">Latest total beats</span>
+            <span class="hero__value" id="heroTotalBeats">0</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="session-card">
+          <div class="session-header">
+            <div>
+              <div class="session-state">
+                <span class="state-dot" id="stateDot"></span>
+                <p id="sessionStateLabel">Session idle</p>
+              </div>
+              <p class="session-timer" id="sessionTimer">00:00</p>
+              <p class="session-started" id="sessionStartedLabel">
+                No active session
+              </p>
+            </div>
+            <div class="session-controls">
+              <button class="pill-btn" id="startSessionBtn">
+                Start session
+              </button>
+              <button class="pill-btn pill-btn--ghost" id="resetSessionBtn">
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <div class="tap-pad">
+            <button class="tap tap--normal" data-action="normal" disabled>
+              <span>Normal beat</span>
+              <small>Tap for every expected beat</small>
+            </button>
+            <button class="tap tap--pvc" data-action="pvc" disabled>
+              <span>PVC</span>
+              <small>Tap when you feel a PVC</small>
+            </button>
+          </div>
+
+          <div class="stat-grid">
+            <article class="stat">
+              <p>Total beats</p>
+              <h3 id="totalBeats">0</h3>
+            </article>
+            <article class="stat">
+              <p>PVC count</p>
+              <h3 id="pvcCount">0</h3>
+              <small id="pvcPercent">0%</small>
+            </article>
+            <article class="stat">
+              <p>Normal beats</p>
+              <h3 id="normalCount">0</h3>
+              <small id="normalPercent">0%</small>
+            </article>
+            <article class="stat">
+              <p>Session duration</p>
+              <h3 id="durationStat">00:00</h3>
+              <small>live</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="history-card">
+          <div class="history-header">
+            <div>
+              <p class="eyebrow">Session history</p>
+              <h2>Calm archive</h2>
+            </div>
+            <button class="text-btn" id="clearHistoryBtn">Clear history</button>
+          </div>
+          <ul class="history-list" id="historyList" aria-live="polite"></ul>
+          <p class="history-footnote">
+            History stays in this browser only. Export by screenshotting or
+            copying the stats you need.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
