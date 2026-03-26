@@ -80,7 +80,7 @@ function endSession() {
     durationMs,
     totalBeats: total,
   };
-  historyItems = [summary, ...historyItems].slice(0, 20); // keep recent 20 sessions
+  historyItems = [summary, ...historyItems];
   saveHistory();
   currentSession = null;
   persistSession();
